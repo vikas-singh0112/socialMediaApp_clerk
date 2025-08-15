@@ -9,34 +9,21 @@ import Signup from "./pages/Signup";
 import UpdateProfile from "./pages/profile/UpdateProfile";
 import { useAuth } from "@clerk/clerk-react";
 import { useEffect } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "./features/user/userSlice.js";
 
 function App() {
+  const dispatch = useDispatch();
   const { getToken, isSignedIn, isLoaded } = useAuth();
 
   useEffect(() => {
-    async function getUser() {
+    const loadUser = async () => {
       if (!isLoaded || !isSignedIn) return;
 
       const token = await getToken();
-
-      try {
-        const response = await axios.get(
-          "http://localhost:3300/api/v1/user/getuser",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getUser();
+      dispatch(fetchUser(token));
+    };
+    loadUser();
   }, [isLoaded, isSignedIn]);
 
   return (
