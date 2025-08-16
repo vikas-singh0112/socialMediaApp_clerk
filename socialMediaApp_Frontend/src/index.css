@@ -118,3 +118,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  background: #05031F;
+  color: #a6a5c0;
+}
+/* #05031F */

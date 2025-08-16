@@ -13,7 +13,6 @@ export const fetchUser = createAsyncThunk(
           },
         }
       );
-      console.log(response.data.data.profileImage.secure_url);
 
       return {
         mongoId: response.data.data._id,
