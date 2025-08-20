@@ -16,7 +16,7 @@ const getUser = asyncHandler(async (req, res) => {
   const firstName = sessionClaims.first_name;
   const lastName = sessionClaims.last_name;
 
-  const name = `${firstName} ${lastName}`.toLowerCase();
+  const fullName = `${firstName} ${lastName}`.toLowerCase();
 
   let user = await User.findOne({ clerkId: userId });
 
@@ -24,7 +24,7 @@ const getUser = asyncHandler(async (req, res) => {
     user = await User.create({
       clerkId: userId,
       email,
-      name,
+      fullName,
     });
 
     // check if user is created successfully

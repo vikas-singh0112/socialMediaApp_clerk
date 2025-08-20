@@ -8,10 +8,8 @@ function Signup() {
     <>
       <SignedOut>
         <div className="flex w-full">
-          <div className="w-1/2 my-auto">
-          <img src={mainImg} className=" ml-[10%]" alt="" />
-          </div>
-          <div className="min-h-screen w-1/2 flex justify-center items-center ">
+          
+          <div className="min-h-screen w-1/3 flex justify-center items-center ">
             <SignUp
               signInUrl="/login"
               appearance={{
@@ -36,6 +34,9 @@ function Signup() {
                 },
               }}
             />
+          </div>
+          <div className="w-1/2 my-auto">
+          <img src={mainImg} className=" ml-[10%]" alt="" />
           </div>
         </div>
       </SignedOut>

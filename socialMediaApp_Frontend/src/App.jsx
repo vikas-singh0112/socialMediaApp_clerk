@@ -1,16 +1,17 @@
 import RequireAuth from "./auth/RequireAuth";
 import Profile from "./pages/profile/Profile";
-import Settings from "./pages/Settings";
+import Settings from "./pages/settingPages/Settings";
 import Login from "./pages/Login";
 import { Route, Routes } from "react-router-dom";
 import PageNotFound404 from "./pages/PageNotFound404";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
-import UpdateProfile from "./pages/profile/UpdateProfile";
 import { useAuth } from "@clerk/clerk-react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUser } from "./features/user/userSlice.js";
+import Explore from "./pages/Explore";
+import MessageInbox from "./pages/MessageInbox";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,10 +36,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         //protected routes
         <Route element={<RequireAuth />}>
-          <Route path="/profile" element={<Profile />}>
-            <Route path="/profile/update-info" element={<UpdateProfile />} />
-          </Route>
+          <Route path="/inbox" element={<MessageInbox />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/explore" element={<Explore />} />
         </Route>
         //catch all routes
         <Route path="*" element={<PageNotFound404 />} />

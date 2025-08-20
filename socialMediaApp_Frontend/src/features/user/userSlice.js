@@ -17,7 +17,7 @@ export const fetchUser = createAsyncThunk(
       return {
         mongoId: response.data.data._id,
         clerkId: response.data.data.clerkId,
-        name: response.data.data.name,
+        fullName: response.data.data.fullName,
         email: response.data.data.email,
         followers: response.data.data.followers,
         following: response.data.data.following,
@@ -32,7 +32,7 @@ export const fetchUser = createAsyncThunk(
 const initialState = {
   clerkId: null,
   mongoId: null,
-  name: null,
+  fullName: null,
   email: null,
   followers: [],
   following: [],
@@ -48,7 +48,7 @@ const userSlice = createSlice({
     clearUser: (state) => {
       state.clerkId = null;
       state.mongoId = null;
-      state.name = null;
+      state.fullName = null;
       state.email = null;
       state.followers = null;
       state.following = null;
@@ -66,7 +66,7 @@ const userSlice = createSlice({
         state.status = "succeeded";
         state.clerkId = action.payload.clerkId;
         state.mongoId = action.payload.mongoId;
-        state.name = action.payload.name;
+        state.fullName = action.payload.fullName;
         state.email = action.payload.email;
         state.followers = action.payload.followers;
         state.following = action.payload.following;

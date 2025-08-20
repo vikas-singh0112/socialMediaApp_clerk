@@ -31,8 +31,12 @@ app.use(
 
 //routes import
 import userRouter from "./routes/userRoutes.js";
+import postRouter from "./routes/postRoutes.js"
+import conversationRouter from "./routes/conversationRoutes.js";
 
 // routes declaration
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/post", postRouter);
+app.use("/api/v1/conversation", conversationRouter);
 
 export { app };

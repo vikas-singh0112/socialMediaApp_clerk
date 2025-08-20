@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Profile() {
   return (
-    <Link to={"/profile/update-info"}>Profile</Link>
+    <h1>profile</h1>
 
   )
 }

@@ -48,7 +48,6 @@ const uploadPostImageOnCloudinary = async (localFilePath, userId) => {
       public_id: `clerkapp/post/${userId}_postImg_${uuidv4()}`,
     });
 
-    console.log("post img uploaded on cloudinary");
 
     if (fs.existsSync(localFilePath)) {
       fs.unlinkSync(localFilePath);
